@@ -1,16 +1,107 @@
 header {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1.5rem;
   align-items: center;
-  background-color: #f3f3f3;
+  background-color: #fff;
+}
 
-  & nav {
+.logo {
+  font-size: 3rem;
+  cursor: pointer;
+  color: #000;
+}
+
+.desktopNav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.mobileNav {
+  display: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.link {
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.link:hover {
+  color: #007bff;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #007bff;
+  transition:
+    width 0.3s,
+    left 0.3s;
+}
+
+.link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.activeLink {
+  color: #007bff;
+}
+
+.activeLink::after {
+  width: 100%;
+  left: 0;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlayMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 50;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+  .desktopNav {
+    display: none;
+  }
+  .menuButton {
     display: flex;
-    gap: 0.75rem;
-    & a {
-      text-decoration: none;
-      color: black;
-    }
+  }
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+  }
+  .link {
+    font-size: 1.5rem;
+    color: white;
   }
 }

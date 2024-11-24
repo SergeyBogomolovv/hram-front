@@ -1,18 +1,70 @@
-import { Link } from 'react-router'
-import './header.module.css'
+import { Link, NavLink, NavLinkRenderProps } from 'react-router'
+import { MdChurch } from 'react-icons/md'
+import { IoMenu } from 'react-icons/io5'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import styles from './header.module.css'
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+  const navLink = ({ isActive }: NavLinkRenderProps) =>
+    isActive ? [styles.link, styles.activeLink].join(' ') : styles.link
+
   return (
     <header>
-      <Link to='/'>
-        <img src='{{ MEDIA_URL }}church1.png' alt='' className='logo_img' width='30' height='30' />
+      <Link to='/' className={styles.logo}>
+        <MdChurch size={32} />
       </Link>
-      <nav>
-        <Link to='/'>Кружки</Link>
-        <Link to='/'>Расписание</Link>
-        <Link to='/'>О нас</Link>
-        <Link to='/'>Регистрация</Link>
+
+      <nav className={styles.desktopNav}>
+        <NavLink to='/' className={navLink}>
+          Кружки
+        </NavLink>
+        <NavLink to='/schedule' className={navLink}>
+          Расписание
+        </NavLink>
+        <NavLink to='/about' className={navLink}>
+          О нас
+        </NavLink>
+        <NavLink to='/login' className={navLink}>
+          Вход | Регистрация
+        </NavLink>
       </nav>
+
+      <button className={styles.menuButton} onClick={toggleMenu}>
+        <IoMenu size={32} />
+      </button>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            onClick={toggleMenu}
+            className={styles.overlayMenu}
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.4 }}
+          >
+            <nav className={styles.mobileNav}>
+              <NavLink to='/' className={navLink} onClick={toggleMenu}>
+                Кружки
+              </NavLink>
+              <NavLink to='/schedule' className={navLink} onClick={toggleMenu}>
+                Расписание
+              </NavLink>
+              <NavLink to='/about' className={navLink} onClick={toggleMenu}>
+                О нас
+              </NavLink>
+              <NavLink to='/login' className={navLink} onClick={toggleMenu}>
+                Вход | Регистрация
+              </NavLink>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
