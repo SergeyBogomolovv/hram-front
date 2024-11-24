@@ -1,6 +1,6 @@
 import styles from './slides.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { A11y, Autoplay, Zoom } from 'swiper/modules'
+import { A11y, Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/bundle'
 
@@ -14,9 +14,9 @@ export default function SlidesSection() {
   return (
     <Swiper
       className={styles.slider}
-      modules={[A11y, Autoplay, Zoom]}
+      modules={[A11y, Autoplay, Pagination]}
       autoplay={{ delay: 3000 }}
-      zoom
+      pagination={{ clickable: true }}
       spaceBetween={16}
       breakpoints={{
         640: {

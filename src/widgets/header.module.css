@@ -32,7 +32,7 @@ header {
 }
 
 .link:hover {
-  color: #007bff;
+  color: var(--primary);
 }
 
 .link::after {
@@ -42,7 +42,7 @@ header {
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: #007bff;
+  background-color: var(--primary);
   transition:
     width 0.3s,
     left 0.3s;
@@ -54,7 +54,7 @@ header {
 }
 
 .activeLink {
-  color: #007bff;
+  color: var(--primary);
 }
 
 .activeLink::after {
