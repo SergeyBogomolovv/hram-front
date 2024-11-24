@@ -1,6 +1,6 @@
 import styles from './events.module.css'
 import EventCard from './event-card'
-import { IoIosSearch } from 'react-icons/io'
+import SearchInput from '../../../shared/ui/search-input'
 
 interface Event {
   image: string
@@ -26,10 +26,7 @@ export default function EventsSection() {
     <section className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.title}>Мероприятия</h1>
-        <div className={styles.searchWrapper}>
-          <IoIosSearch className={styles.icon} />
-          <input className={styles.search} type='text' placeholder='Поиск мероприятий' />
-        </div>
+        <SearchInput width='400px' placeholder='Поиск мероприятий' />
       </div>
       <div className={styles.events}>
         {events.map((event, index) => (
