@@ -71,3 +71,9 @@
     font-size: 0.875rem;
   }
 }
+
+@media (max-width: 500px) {
+  .hero {
+    aspect-ratio: 1/1;
+  }
+}

@@ -34,12 +34,15 @@
   gap: 1.5rem;
 }
 
-.card_image {
-  flex: 1;
-  max-width: 50%;
-  height: 100%;
-  object-fit: cover;
+.image_wrapper {
+  overflow: hidden;
   border-radius: 1rem;
+  flex: 1;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .text_content {

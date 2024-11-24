@@ -1,6 +1,7 @@
 import styles from './slides.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { A11y, Autoplay, Pagination } from 'swiper/modules'
+import { motion } from 'framer-motion'
 import 'swiper/css'
 import 'swiper/css/bundle'
 
@@ -35,9 +36,23 @@ export default function SlidesSection() {
     >
       {slides.map((slide) => (
         <SwiperSlide zoom key={slide.img}>
-          <div className={styles.card} style={{ backgroundImage: `url('${slide.img}')` }}>
-            <p>{slide.content}</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+            className={styles.card}
+            style={{ backgroundImage: `url('${slide.img}')` }}
+          >
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {slide.content}
+            </motion.p>
+          </motion.div>
         </SwiperSlide>
       ))}
     </Swiper>

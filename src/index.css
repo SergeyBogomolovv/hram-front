@@ -3,6 +3,7 @@
 :root {
   --primary: #007bff;
   --secondary: #2890ff;
+  --light: #e0f2ff;
   font-family: 'Montserrat', 'sans-serif';
   font-weight: 400;
   font-size: 16px;

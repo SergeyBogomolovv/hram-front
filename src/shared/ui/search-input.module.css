@@ -5,6 +5,12 @@
   width: 250px;
 }
 
+@media screen and (max-width: 768px) {
+  .searchContainer {
+    width: 100%;
+  }
+}
+
 .icon {
   position: absolute;
   left: 10px;
