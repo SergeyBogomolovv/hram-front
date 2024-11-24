@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
-import Header from '../widgets/header'
-import Footer from '../widgets/footer'
+import Header from '../widgets/header/header'
+import Footer from '../widgets/footer/footer'
 import styles from './layout.module.css'
 
 export default function MainLayout() {

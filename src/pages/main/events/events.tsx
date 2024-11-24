@@ -1,6 +1,7 @@
 import styles from './events.module.css'
-import EventCard from './event-card'
-import SearchInput from '../../../shared/ui/search-input'
+import EventCard from '@/widgets/events/event-card'
+import SearchInput from '@/shared/ui/search-input'
+import { motion } from 'motion/react'
 
 interface Event {
   image: string
@@ -12,25 +13,36 @@ const events: Event[] = [
   {
     image: '/placeholder1.jpg',
     text: '“Путешествие в прошлое: Уникальный урок истории в Воскресной школе Евфросинии Московской”',
-    link: '/event1',
+    link: '#',
   },
   {
     image: '/placeholder2.jpg',
     text: '“Путешествие в прошлое: Уникальный урок истории в Воскресной школе Евфросинии Московской”',
-    link: '/event2',
+    link: '#',
   },
 ]
+
+const MotionCard = motion(EventCard)
 
 export default function EventsSection() {
   return (
     <section className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.title}>Мероприятия</h1>
-        <SearchInput width='400px' placeholder='Поиск мероприятий' />
+        <SearchInput placeholder='Поиск мероприятий' />
       </div>
       <div className={styles.events}>
         {events.map((event, index) => (
-          <EventCard key={index} {...event} />
+          <MotionCard
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            key={index}
+            href={event.link}
+            content={event.text}
+            image={event.image}
+          />
         ))}
       </div>
     </section>

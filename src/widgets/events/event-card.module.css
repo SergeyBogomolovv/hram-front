@@ -69,7 +69,7 @@
 }
 
 .link:hover {
-  color: var(--secondary);
+  color: var(--primary-light);
 }
 
 .link::after {
@@ -80,7 +80,7 @@
   border-radius: 2px;
   bottom: -6px;
   left: 50%;
-  background-color: var(--secondary);
+  background-color: var(--primary-light);
   transition:
     width 0.3s,
     left 0.3s;

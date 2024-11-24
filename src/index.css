@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 :root {
   --primary: #007bff;
-  --secondary: #2890ff;
+  --primary-light: #2890ff;
   --light: #e0f2ff;
   font-family: 'Montserrat', 'sans-serif';
   font-weight: 400;
