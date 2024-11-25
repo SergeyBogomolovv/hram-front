@@ -12,11 +12,7 @@ const Accordion = forwardRef<HTMLDivElement, Props>(({ question, answer }, ref) 
   const toggle = () => setOpen(!open)
 
   return (
-    <div
-      ref={ref}
-      onClick={toggle}
-      className={`${styles.container} ${open ? styles.opened : styles.closed}`}
-    >
+    <div ref={ref} onClick={toggle} className={`${styles.container} ${open ? styles.opened : ''}`}>
       <div className={styles.header}>
         <h3 className={styles.question}>{question}</h3>
         <span className={styles.icon}>?</span>
