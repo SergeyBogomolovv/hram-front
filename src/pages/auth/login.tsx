@@ -1,5 +1,5 @@
 import { LoginForm } from '@/features/auth'
-import styles from './login-page.module.css'
+import styles from './auth.module.css'
 
 export default function LoginPage() {
   return (

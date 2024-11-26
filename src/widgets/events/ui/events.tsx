@@ -1,5 +1,5 @@
 import styles from './events.module.css'
-import EventCard from '@/widgets/events/event-card'
+import EventCard from '@/widgets/events/ui/event-card'
 import { Input, InputAdornment } from '@mui/material'
 import { motion } from 'motion/react'
 import { MdSearch } from 'react-icons/md'
@@ -25,7 +25,7 @@ const events: Event[] = [
 
 const MotionCard = motion(EventCard)
 
-export default function EventsSection() {
+export function EventsSection() {
   return (
     <section className={styles.container}>
       <div className={styles.header}>

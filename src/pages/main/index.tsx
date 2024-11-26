@@ -1,6 +1,6 @@
 import HeroSection from './hero/hero'
 import SlidesSection from './slides/slides'
-import EventsSection from './events/events'
+import { EventsSection } from '@/widgets/events'
 import FaqSection from './faq/faq'
 import styles from './main.module.css'
 

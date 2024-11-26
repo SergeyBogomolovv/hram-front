@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
-import MainLayout from './main-layout'
-import MainPage from '../pages/main'
-import SchedulePage from '../pages/schedule/schedule'
-import AboutPage from '../pages/about'
-import LoginPage from '../pages/login'
 import { createTheme, ThemeProvider } from '@mui/material'
+import MainLayout from './main-layout'
+import MainPage from '@/pages/main'
+import SchedulePage from '@/pages/schedule/schedule'
+import AboutPage from '@/pages/about'
+import LoginPage from '@/pages/auth/login'
+import RegisterPage from '@/pages/auth/register'
 
 const theme = createTheme({
   palette: {
@@ -47,6 +48,7 @@ export default function App() {
             <Route path='schedule' element={<SchedulePage />} />
             <Route path='about' element={<AboutPage />} />
             <Route path='login' element={<LoginPage />} />
+            <Route path='register' element={<RegisterPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

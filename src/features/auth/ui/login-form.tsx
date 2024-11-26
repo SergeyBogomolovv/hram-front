@@ -1,7 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input, Button, Box, Typography, FormHelperText } from '@mui/material'
-import { LoginFormInputs, loginSchema } from '../model/login-form'
+import { LoginFormInputs, loginSchema } from '../model/schemas'
+import styles from './auth.module.css'
 import CustomLink from '@/shared/ui/link'
 
 export function LoginForm() {
@@ -14,21 +15,12 @@ export function LoginForm() {
   })
 
   const onSubmit: SubmitHandler<LoginFormInputs> = (data) => {
+    //TODO: implement login
     console.log('Form Data:', data)
   }
 
   return (
-    <Box
-      component='form'
-      onSubmit={handleSubmit(onSubmit)}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 3,
-        width: '100%',
-        maxWidth: 400,
-      }}
-    >
+    <Box component='form' onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <Typography variant='h5' align='center'>
         Вход в аккаунт
       </Typography>
