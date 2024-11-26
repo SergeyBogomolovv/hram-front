@@ -1,4 +1,4 @@
-import MaterialAccorion from '@mui/material/Accordion'
+import MaterialAccordion from '@mui/material/Accordion'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import { Typography } from '@mui/material'
@@ -12,7 +12,7 @@ interface Props {
 
 const Accordion = forwardRef<HTMLDivElement, Props>(({ question, answer }, ref) => {
   return (
-    <MaterialAccorion
+    <MaterialAccordion
       ref={ref}
       disableGutters
       elevation={0}
@@ -32,7 +32,7 @@ const Accordion = forwardRef<HTMLDivElement, Props>(({ question, answer }, ref) 
         </Typography>
       </AccordionSummary>
       <AccordionDetails>{answer}</AccordionDetails>
-    </MaterialAccorion>
+    </MaterialAccordion>
   )
 })
 

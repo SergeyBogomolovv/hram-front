@@ -39,10 +39,18 @@ export default function Header() {
             transition={{ duration: 0.4 }}
           >
             <nav className={styles.mobileNav}>
-              <CustomLink to='/'>Кружки</CustomLink>
-              <CustomLink to='/schedule'>Расписание</CustomLink>
-              <CustomLink to='/about'>О нас</CustomLink>
-              <CustomLink to='/login'>Вход | Регистрация</CustomLink>
+              <CustomLink to='/' sx={{ fontSize: '1.5rem', color: 'white' }}>
+                Кружки
+              </CustomLink>
+              <CustomLink to='/schedule' sx={{ fontSize: '1.5rem', color: 'white' }}>
+                Расписание
+              </CustomLink>
+              <CustomLink to='/about' sx={{ fontSize: '1.5rem', color: 'white' }}>
+                О нас
+              </CustomLink>
+              <CustomLink to='/login' sx={{ fontSize: '1.5rem', color: 'white' }}>
+                Вход | Регистрация
+              </CustomLink>
             </nav>
           </motion.div>
         )}

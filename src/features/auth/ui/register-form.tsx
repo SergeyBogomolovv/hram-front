@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input, Button, Box, Typography, FormHelperText } from '@mui/material'
+import { Button, Box, Typography, FormHelperText, TextField } from '@mui/material'
 import { RegisterFormInputs, registerSchema } from '../model/schemas'
 import CustomLink from '@/shared/ui/link'
 import styles from './auth.module.css'
@@ -26,18 +26,13 @@ export function RegisterForm() {
       </Typography>
 
       <Box>
-        <Input
-          placeholder='Имя'
-          fullWidth
-          {...register('first_name')}
-          error={!!errors.first_name}
-        />
+        <TextField label='Имя' fullWidth {...register('first_name')} error={!!errors.first_name} />
         {errors.first_name && <FormHelperText error>{errors.first_name.message}</FormHelperText>}
       </Box>
 
       <Box>
-        <Input
-          placeholder='Фамилия'
+        <TextField
+          label='Фамилия'
           fullWidth
           {...register('last_name')}
           error={!!errors.last_name}
@@ -46,8 +41,8 @@ export function RegisterForm() {
       </Box>
 
       <Box>
-        <Input
-          placeholder='Email'
+        <TextField
+          label='Email'
           type='email'
           fullWidth
           {...register('email')}
@@ -57,8 +52,8 @@ export function RegisterForm() {
       </Box>
 
       <Box>
-        <Input
-          placeholder='Пароль'
+        <TextField
+          label='Пароль'
           type='password'
           fullWidth
           {...register('password')}
@@ -68,8 +63,8 @@ export function RegisterForm() {
       </Box>
 
       <Box>
-        <Input
-          placeholder='Повторите пароль'
+        <TextField
+          label='Повторите пароль'
           type='password'
           fullWidth
           {...register('passwordAgain')}
@@ -80,7 +75,14 @@ export function RegisterForm() {
         )}
       </Box>
 
-      <Button type='submit' variant='contained' color='primary' fullWidth>
+      <Button
+        type='submit'
+        variant='contained'
+        color='primary'
+        fullWidth
+        size='large'
+        sx={{ fontWeight: 'bold' }}
+      >
         Зарегистрироваться
       </Button>
       <CustomLink to={'/login'}>Уже есть аккаунт? Войти</CustomLink>

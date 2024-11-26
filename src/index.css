@@ -12,3 +12,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.container {
+  width: 1364px;
+  max-width: 95%;
+  margin: 0 auto;
+}

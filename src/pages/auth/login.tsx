@@ -3,7 +3,7 @@ import styles from './auth.module.css'
 
 export default function LoginPage() {
   return (
-    <main className={styles.container}>
+    <main className={`${styles.container} container`}>
       <LoginForm />
     </main>
   )

@@ -34,10 +34,6 @@ const StyledLink = styled(NavLink)(({ theme }) => ({
       left: 0,
     },
   },
-  [theme.breakpoints.down('md')]: {
-    fontSize: '1.5rem',
-    color: 'white',
-  },
 }))
 
 export default function CustomLink(props: NavLinkProps & { sx?: SxProps<Theme> }) {

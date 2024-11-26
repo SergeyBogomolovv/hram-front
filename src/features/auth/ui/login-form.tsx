@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input, Button, Box, Typography, FormHelperText } from '@mui/material'
+import { Button, Box, Typography, FormHelperText, TextField } from '@mui/material'
 import { LoginFormInputs, loginSchema } from '../model/schemas'
 import styles from './auth.module.css'
 import CustomLink from '@/shared/ui/link'
@@ -25,8 +25,8 @@ export function LoginForm() {
         Вход в аккаунт
       </Typography>
       <Box>
-        <Input
-          placeholder='Email'
+        <TextField
+          label='Email'
           type='email'
           fullWidth
           {...register('email')}
@@ -35,8 +35,8 @@ export function LoginForm() {
         {errors.email && <FormHelperText error>{errors.email.message}</FormHelperText>}
       </Box>
       <Box>
-        <Input
-          placeholder='Пароль'
+        <TextField
+          label='Пароль'
           type='password'
           fullWidth
           {...register('password')}
@@ -44,8 +44,14 @@ export function LoginForm() {
         />
         {errors.password && <FormHelperText error>{errors.password.message}</FormHelperText>}
       </Box>
-
-      <Button type='submit' variant='contained' color='primary' fullWidth>
+      <Button
+        type='submit'
+        variant='contained'
+        color='primary'
+        fullWidth
+        size='large'
+        sx={{ fontWeight: 'bold' }}
+      >
         Войти
       </Button>
       <CustomLink to={'/register'}>У вас еще нету аккаунта? Регистрация</CustomLink>

@@ -8,7 +8,7 @@ export default function MainPage() {
   return (
     <main>
       <HeroSection />
-      <div className={styles.container}>
+      <div className={[styles.container, 'container'].join(' ')}>
         <SlidesSection />
         <EventsSection />
         <FaqSection />
