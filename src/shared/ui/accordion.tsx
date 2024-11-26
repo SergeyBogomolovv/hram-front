@@ -1,5 +1,9 @@
-import { useState, forwardRef } from 'react'
+import MaterialAccorion from '@mui/material/Accordion'
+import AccordionDetails from '@mui/material/AccordionDetails'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import { Typography } from '@mui/material'
 import styles from './accordion.module.css'
+import { forwardRef } from 'react'
 
 interface Props {
   question: string
@@ -7,21 +11,28 @@ interface Props {
 }
 
 const Accordion = forwardRef<HTMLDivElement, Props>(({ question, answer }, ref) => {
-  const [open, setOpen] = useState(false)
-
-  const toggle = () => setOpen(!open)
-
   return (
-    <div ref={ref} onClick={toggle} className={`${styles.container} ${open ? styles.opened : ''}`}>
-      <div className={styles.header}>
-        <h3 className={styles.question}>{question}</h3>
-        <span className={styles.icon}>?</span>
-      </div>
-
-      <div className={`${styles.content} ${open ? styles.opened : ''}`}>
-        <p className={styles.contentText}>{answer}</p>
-      </div>
-    </div>
+    <MaterialAccorion
+      ref={ref}
+      disableGutters
+      elevation={0}
+      sx={{
+        borderRadius: '12px',
+        '&:before': {
+          display: 'none',
+        },
+      }}
+    >
+      <AccordionSummary
+        sx={{ padding: '1rem' }}
+        expandIcon={<span className={styles.icon}>?</span>}
+      >
+        <Typography sx={{ fontSize: '1rem', fontWeight: 'bold' }} variant='h5'>
+          {question}
+        </Typography>
+      </AccordionSummary>
+      <AccordionDetails>{answer}</AccordionDetails>
+    </MaterialAccorion>
   )
 })
 
