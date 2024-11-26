@@ -1,17 +1,15 @@
-import { Link, NavLink, NavLinkRenderProps } from 'react-router'
+import { Link } from 'react-router'
 import { MdChurch } from 'react-icons/md'
 import { IoMenu } from 'react-icons/io5'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import styles from './header.module.css'
+import CustomLink from '@/shared/ui/link'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
-
-  const navLink = ({ isActive }: NavLinkRenderProps) =>
-    isActive ? [styles.link, styles.activeLink].join(' ') : styles.link
 
   return (
     <header>
@@ -20,18 +18,10 @@ export default function Header() {
       </Link>
 
       <nav className={styles.desktopNav}>
-        <NavLink to='/' className={navLink}>
-          Кружки
-        </NavLink>
-        <NavLink to='/schedule' className={navLink}>
-          Расписание
-        </NavLink>
-        <NavLink to='/about' className={navLink}>
-          О нас
-        </NavLink>
-        <NavLink to='/login' className={navLink}>
-          Вход | Регистрация
-        </NavLink>
+        <CustomLink to='/'>Кружки</CustomLink>
+        <CustomLink to='/schedule'>Расписание</CustomLink>
+        <CustomLink to='/about'>О нас</CustomLink>
+        <CustomLink to='/login'>Вход | Регистрация</CustomLink>
       </nav>
 
       <button className={styles.menuButton} onClick={toggleMenu}>
@@ -49,18 +39,10 @@ export default function Header() {
             transition={{ duration: 0.4 }}
           >
             <nav className={styles.mobileNav}>
-              <NavLink to='/' className={navLink} onClick={toggleMenu}>
-                Кружки
-              </NavLink>
-              <NavLink to='/schedule' className={navLink} onClick={toggleMenu}>
-                Расписание
-              </NavLink>
-              <NavLink to='/about' className={navLink} onClick={toggleMenu}>
-                О нас
-              </NavLink>
-              <NavLink to='/login' className={navLink} onClick={toggleMenu}>
-                Вход | Регистрация
-              </NavLink>
+              <CustomLink to='/'>Кружки</CustomLink>
+              <CustomLink to='/schedule'>Расписание</CustomLink>
+              <CustomLink to='/about'>О нас</CustomLink>
+              <CustomLink to='/login'>Вход | Регистрация</CustomLink>
             </nav>
           </motion.div>
         )}

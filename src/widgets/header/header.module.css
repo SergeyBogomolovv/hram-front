@@ -23,45 +23,6 @@ header {
   align-items: center;
 }
 
-.link {
-  font-size: 1rem;
-  text-decoration: none;
-  color: black;
-  padding: 0.5rem 1rem;
-  position: relative;
-}
-
-.link:hover {
-  color: var(--primary);
-}
-
-.link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 50%;
-  background-color: var(--primary);
-  transition:
-    width 0.3s,
-    left 0.3s;
-}
-
-.link:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-.activeLink {
-  color: var(--primary);
-}
-
-.activeLink::after {
-  width: 100%;
-  left: 0;
-}
-
 .menuButton {
   background: none;
   border: none;
@@ -99,9 +60,5 @@ header {
   .mobileNav {
     display: flex;
     flex-direction: column;
-  }
-  .link {
-    font-size: 1.5rem;
-    color: white;
   }
 }

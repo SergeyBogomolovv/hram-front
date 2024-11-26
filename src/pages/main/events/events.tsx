@@ -1,7 +1,8 @@
 import styles from './events.module.css'
 import EventCard from '@/widgets/events/event-card'
-import SearchInput from '@/shared/ui/search-input'
+import { Input, InputAdornment } from '@mui/material'
 import { motion } from 'motion/react'
+import { MdSearch } from 'react-icons/md'
 
 interface Event {
   image: string
@@ -29,7 +30,14 @@ export default function EventsSection() {
     <section className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.title}>Мероприятия</h1>
-        <SearchInput placeholder='Поиск мероприятий' />
+        <Input
+          placeholder='Поиск мероприятий'
+          startAdornment={
+            <InputAdornment position='start'>
+              <MdSearch size={24} />
+            </InputAdornment>
+          }
+        />
       </div>
       <div className={styles.events}>
         {events.map((event, index) => (
