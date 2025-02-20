@@ -6,12 +6,6 @@ header {
   background-color: #fff;
 }
 
-.logo {
-  font-size: 3rem;
-  cursor: pointer;
-  color: #000;
-}
-
 .desktopNav {
   display: flex;
   gap: 1.25rem;
@@ -45,6 +39,17 @@ header {
   gap: 1.5rem;
   z-index: 50;
   cursor: pointer;
+}
+
+.logo {
+  cursor: pointer;
+  color: #000;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {

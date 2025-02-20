@@ -1,71 +1,94 @@
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Box, Typography, FormHelperText, TextField } from '@mui/material'
-import { RegisterFormInputs, registerSchema } from '../model/schemas'
-import CustomLink from '@/shared/ui/link'
-import styles from './auth.module.css'
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  Button,
+  Box,
+  Typography,
+  FormHelperText,
+  TextField,
+} from '@mui/material';
+import { RegisterFormInputs, registerSchema } from '../model/schemas';
+import CustomLink from '@/shared/ui/link';
+import styles from './auth.module.css';
+import { useRegister } from '../api/register';
 
 export function RegisterForm() {
+  const form = useForm<RegisterFormInputs>({
+    resolver: zodResolver(registerSchema),
+  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterFormInputs>({
-    resolver: zodResolver(registerSchema),
-  })
+  } = form;
 
-  const onSubmit: SubmitHandler<RegisterFormInputs> = (data) => {
-    //TODO: implement registration
-    console.log('Form Data:', data)
-  }
+  const { mutate } = useRegister(form);
 
   return (
-    <Box component='form' onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-      <Typography variant='h5' align='center'>
+    <Box
+      component="form"
+      onSubmit={handleSubmit((data) => mutate(data))}
+      className={styles.form}
+    >
+      <Typography variant="h5" align="center">
         Регистрация
       </Typography>
 
       <Box>
-        <TextField label='Имя' fullWidth {...register('first_name')} error={!!errors.first_name} />
-        {errors.first_name && <FormHelperText error>{errors.first_name.message}</FormHelperText>}
+        <TextField
+          label="Имя"
+          fullWidth
+          {...register('first_name')}
+          error={!!errors.first_name}
+        />
+        {errors.first_name && (
+          <FormHelperText error>{errors.first_name.message}</FormHelperText>
+        )}
       </Box>
 
       <Box>
         <TextField
-          label='Фамилия'
+          label="Фамилия"
           fullWidth
           {...register('last_name')}
           error={!!errors.last_name}
         />
-        {errors.last_name && <FormHelperText error>{errors.last_name.message}</FormHelperText>}
+        {errors.last_name && (
+          <FormHelperText error>{errors.last_name.message}</FormHelperText>
+        )}
       </Box>
 
       <Box>
         <TextField
-          label='Email'
-          type='email'
+          label="Email"
+          type="email"
           fullWidth
-          {...register('email')}
-          error={!!errors.email}
+          {...register('mail')}
+          error={!!errors.mail}
         />
-        {errors.email && <FormHelperText error>{errors.email.message}</FormHelperText>}
+        {errors.mail && (
+          <FormHelperText error>{errors.mail.message}</FormHelperText>
+        )}
       </Box>
 
       <Box>
         <TextField
-          label='Пароль'
-          type='password'
+          label="Пароль"
+          type="password"
           fullWidth
           {...register('password')}
           error={!!errors.password}
         />
-        {errors.password && <FormHelperText error>{errors.password.message}</FormHelperText>}
+        {errors.password && (
+          <FormHelperText error>{errors.password.message}</FormHelperText>
+        )}
       </Box>
 
       <Box>
         <TextField
-          label='Повторите пароль'
-          type='password'
+          label="Повторите пароль"
+          type="password"
           fullWidth
           {...register('passwordAgain')}
           error={!!errors.passwordAgain}
@@ -76,16 +99,16 @@ export function RegisterForm() {
       </Box>
 
       <Button
-        type='submit'
-        variant='contained'
-        color='primary'
+        type="submit"
+        variant="contained"
+        color="primary"
         fullWidth
-        size='large'
+        size="large"
         sx={{ fontWeight: 'bold' }}
       >
         Зарегистрироваться
       </Button>
       <CustomLink to={'/login'}>Уже есть аккаунт? Войти</CustomLink>
     </Box>
-  )
+  );
 }

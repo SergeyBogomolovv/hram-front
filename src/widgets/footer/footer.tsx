@@ -1,6 +1,6 @@
-import styles from './footer.module.css'
-import { BsTelegram } from 'react-icons/bs'
-import { SiVk } from 'react-icons/si'
+import styles from './footer.module.css';
+import { BsTelegram } from 'react-icons/bs';
+import { SiVk } from 'react-icons/si';
 
 export default function Footer() {
   return (
@@ -29,8 +29,8 @@ export default function Footer() {
         </section>
       </div>
       <div className={styles.bottom}>
-        <p>© 2024 Воскресная школа. Все права защищены.</p>
+        <p>© 2025 Культурный центр Наследие. Все права защищены.</p>
       </div>
     </footer>
-  )
+  );
 }

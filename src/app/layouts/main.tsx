@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router'
-import Header from '../../widgets/header/header'
-import Footer from '../../widgets/footer/footer'
-import styles from './main.module.css'
+import { Outlet } from 'react-router';
+import Header from '@/widgets/header/header';
+import Footer from '@/widgets/footer/footer';
+import styles from './main.module.css';
 
 export default function MainLayout() {
   return (
@@ -10,5 +10,5 @@ export default function MainLayout() {
       <Outlet />
       <Footer />
     </div>
-  )
+  );
 }
