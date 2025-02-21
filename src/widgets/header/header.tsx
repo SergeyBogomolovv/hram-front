@@ -1,28 +1,29 @@
 import { Link } from 'react-router';
-import { MdChurch } from 'react-icons/md';
 import { IoMenu } from 'react-icons/io5';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import styles from './header.module.css';
 import CustomLink from '@/shared/ui/link';
+import { isAuthenticated } from '@/features/auth';
+import LogoutButton from './logout-btn';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isauth = isAuthenticated();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <header>
       <Link to="/" className={styles.logo}>
-        <MdChurch size={32} />
         <h1>Культурный центр Наследие</h1>
       </Link>
 
       <nav className={styles.desktopNav}>
-        <CustomLink to="/">Кружки</CustomLink>
+        <CustomLink to="/sections">Кружки</CustomLink>
         <CustomLink to="/schedule">Расписание</CustomLink>
         <CustomLink to="/about">О нас</CustomLink>
-        <CustomLink to="/login">Вход | Регистрация</CustomLink>
+        {isauth ? <LogoutButton /> : <CustomLink to="/login">Вход</CustomLink>}
       </nav>
 
       <button className={styles.menuButton} onClick={toggleMenu}>
@@ -40,7 +41,10 @@ export default function Header() {
             transition={{ duration: 0.4 }}
           >
             <nav className={styles.mobileNav}>
-              <CustomLink to="/" sx={{ fontSize: '1.5rem', color: 'white' }}>
+              <CustomLink
+                to="/sections"
+                sx={{ fontSize: '1.5rem', color: 'white' }}
+              >
                 Кружки
               </CustomLink>
               <CustomLink
@@ -55,12 +59,16 @@ export default function Header() {
               >
                 О нас
               </CustomLink>
-              <CustomLink
-                to="/login"
-                sx={{ fontSize: '1.5rem', color: 'white' }}
-              >
-                Вход | Регистрация
-              </CustomLink>
+              {isauth ? (
+                <LogoutButton />
+              ) : (
+                <CustomLink
+                  to="/login"
+                  sx={{ fontSize: '1.5rem', color: 'white' }}
+                >
+                  Вход | Регистрация
+                </CustomLink>
+              )}
             </nav>
           </motion.div>
         )}

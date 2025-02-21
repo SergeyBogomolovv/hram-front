@@ -8,12 +8,14 @@ import AboutPage from '@/pages/about';
 import LoginPage from '@/pages/auth/login';
 import RegisterPage from '@/pages/auth/register';
 import { publicLoader } from '@/pages/auth/loaders/public';
+import SectionsPage from '@/pages/sections/sections';
 
 const router = createBrowserRouter([
   {
     element: <MainLayout />,
     children: [
       { index: true, element: <MainPage /> },
+      { path: 'sections', element: <SectionsPage /> },
       { path: 'schedule', element: <SchedulePage /> },
       { path: 'about', element: <AboutPage /> },
       { path: 'login', element: <LoginPage />, loader: publicLoader },

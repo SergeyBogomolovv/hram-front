@@ -1,5 +1,5 @@
 import { redirect } from 'react-router';
-import { isAuthenticated } from './is-auth';
+import { isAuthenticated } from '@/features/auth';
 
 export const publicLoader = () => {
   const authenticated = isAuthenticated();
