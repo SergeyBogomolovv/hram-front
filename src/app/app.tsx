@@ -9,6 +9,7 @@ import LoginPage from '@/pages/auth/login';
 import RegisterPage from '@/pages/auth/register';
 import { publicLoader } from '@/pages/auth/loaders/public';
 import SectionsPage from '@/pages/sections/sections';
+import EventPage from '@/pages/event';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: 'about', element: <AboutPage /> },
       { path: 'login', element: <LoginPage />, loader: publicLoader },
       { path: 'register', element: <RegisterPage />, loader: publicLoader },
+      { path: 'events/:id', element: <EventPage /> },
     ],
   },
 ]);
